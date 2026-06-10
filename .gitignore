@@ -1,0 +1,9 @@
+# Design reference / scratch screenshots (large, not part of the live site)
+reference/
+
+# Local dev tooling & editor config
+.claude/
+.vscode/
+
+# macOS
+.DS_Store

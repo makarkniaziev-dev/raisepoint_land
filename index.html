@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================ SEO / META ============================ -->
+  <title>RaisePoint · Verified intelligence on Ukraine &amp; EU defence-tech</title>
+  <meta name="description" content="RaisePoint is the deal-flow engine for funds backing Ukrainian and EU defence-tech. Verified intelligence and a single score on the early companies our competitors miss." />
+  <meta name="theme-color" content="#171717" />
+  <link rel="canonical" href="https://raisepoint.nl/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RaisePoint · Verified intelligence on Ukraine &amp; EU defence-tech" />
+  <meta property="og:description" content="The deal-flow engine for specialist defence capital in Europe. We cover the early companies others miss, and score them on the signals that close defence deals." />
+  <meta property="og:image" content="reference/social-card-placeholder.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (placeholder, swap in /favicon.svg) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Flag JS as early as possible so reveal-animations degrade gracefully -->
+  <script>document.documentElement.className = "js";</script>
+
+  <!-- One web font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind via Play CDN + inline config (maps utilities to the CSS vars in styles.css) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "var(--bg)", "bg-alt": "var(--bg-alt)",
+            surface: "var(--surface)", "surface-2": "var(--surface-2)",
+            ink: "var(--ink)", muted: "var(--muted)", "muted-2": "var(--muted-2)",
+            faint: "var(--faint)", accent: "var(--accent)", "accent-deep": "var(--accent-deep)",
+            line: "var(--border)"
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+            mono: ["ui-monospace", "SF Mono", "Menlo", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+
+<body class="font-sans antialiased">
+  <!-- Skip link for keyboard / screen-reader users -->
+  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+  <!-- ===================================================================
+       HEADER / NAV  (sticky). Logo left, anchors centre, CTA right.
+       EDIT: nav links + the "Request access" button live here.
+  ==================================================================== -->
+  <header class="nav">
+    <div class="container h-full flex items-center justify-between gap-6">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="RaisePoint home">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <g fill="none" stroke="var(--muted)" stroke-width="1.5">
+            <circle cx="16" cy="16" r="8.5" opacity="0.55"/>
+            <path d="M16 4v4.5M16 23.5V28M4 16h4.5M23.5 16H28" opacity="0.75"/>
+          </g>
+          <circle cx="16" cy="16" r="3.1" fill="var(--muted)"/>
+        </svg>
+        <span class="logo-word font-semibold tracking-tight text-[1.25rem]">RaisePoint</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-7" aria-label="Primary">
+        <a href="#what" class="nav-link">About</a>
+        <a href="#how" class="nav-link">Security</a>
+        <a href="#use-cases" class="nav-link">Use cases</a>
+        <a href="request-access.html" class="btn btn-primary btn-sm">Request access</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden p-2 -mr-2 text-ink" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobile-menu" class="md:hidden border-t border-line bg-bg/95 backdrop-blur">
+      <nav class="container py-4 flex flex-col gap-1" aria-label="Mobile">
+        <a href="#what" class="nav-link py-2.5">About</a>
+        <a href="#how" class="nav-link py-2.5">Security</a>
+        <a href="#use-cases" class="nav-link py-2.5">Use cases</a>
+        <a href="request-access.html" class="btn btn-primary mt-3 justify-center">Request access</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================
+         1. HERO  (text left, image right)
+         EDIT: headline, subhead and the two buttons here.
+         HERO IMAGE: replace assets/hero.svg with your own picture
+         (drop a file in /assets and update the <img src> below).
+    ==================================================================== -->
+    <section id="hero" class="relative overflow-hidden">
+      <!-- Dark gradient background (adapted from the elegant-dark-pattern component) -->
+      <div class="dgb" aria-hidden="true">
+        <div class="dgb-base"></div>
+        <div class="dgb-streak dgb-s1"></div>
+        <div class="dgb-streak dgb-s2"></div>
+        <div class="dgb-streak dgb-s3"></div>
+        <div class="dgb-streak dgb-s4"></div>
+        <div class="dgb-streak dgb-s5"></div>
+        <div class="dgb-grain"></div>
+        <div class="dgb-dots"></div>
+        <div class="dgb-glow"></div>
+      </div>
+
+      <div class="container relative z-10 pt-16 pb-16 md:pt-24 md:pb-24">
+        <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-10">
+
+          <!-- left: copy -->
+          <div class="text-left">
+            <h1 class="max-w-xl text-[clamp(2.3rem,5vw,4.1rem)]">
+              Verified intelligence on European defence sector.
+            </h1>
+            <p class="mt-6 max-w-xl text-[1.05rem] md:text-[1.15rem] text-muted">
+              RaisePoint is the deal-flow engine for specialist defence capital in Europe. We cover a
+              broad set of companies in defence, and score them on the signals that actually matter in
+              defence deals.
+            </p>
+            <div class="mt-9 flex flex-wrap items-center gap-3">
+              <a href="request-access.html" class="btn btn-primary">Request access</a>
+              <a href="#what" class="btn btn-ghost">See what we do <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+
+          <!-- right: recreated RaisePoint terminal (Companies view), decorative.
+               TO USE A REAL SCREENSHOT INSTEAD, replace this whole <div class="term">…</div>
+               with:  <div class="hero-frame"><img src="assets/hero.png" class="hero-img" alt="RaisePoint terminal" /></div> -->
+          <div class="relative w-full lg:justify-self-end" aria-hidden="true">
+            <div class="term">
+              <!-- sidebar -->
+              <aside class="term-side">
+                <div>
+                  <div class="term-brand"><span class="mk"></span><span class="nm">RAISEPOINT</span></div>
+                </div>
+                <div class="term-grp">
+                  <p class="term-sec">WORKSPACE</p>
+                  <span class="term-item"><span class="ic"></span>Fresh Intel</span>
+                  <span class="term-item on"><span class="ic"></span>Companies</span>
+                  <span class="term-item"><span class="ic"></span>Investors</span>
+                  <span class="term-item"><span class="ic"></span>Deals</span>
+                </div>
+                <div class="term-grp">
+                  <p class="term-sec">INTELLIGENCE</p>
+                  <span class="term-item"><span class="ic"></span>Signals</span>
+                  <span class="term-item"><span class="ic"></span>Compare</span>
+                  <span class="term-item"><span class="ic"></span>AI Assistant</span>
+                </div>
+                <div class="term-grp">
+                  <p class="term-sec">REFERENCE</p>
+                  <span class="term-item"><span class="ic"></span>Methodology</span>
+                </div>
+              </aside>
+              <!-- main -->
+              <div class="term-main">
+                <h3 class="term-h">Companies</h3>
+                <div class="term-filters">
+                  <span class="term-search">search company or signal…</span>
+                  <span class="term-pill term-hide-sm">all stages ▾</span>
+                  <span class="term-pill term-foll">★ Followed investors</span>
+                </div>
+                <div class="term-table">
+                  <div class="term-thead">
+                    <span></span><span>COMPANY</span>
+                    <span class="term-hide-sm">HQ</span>
+                    <span class="term-hide-sm">STAGE</span>
+                    <span class="term-hide-sm">CATEGORY</span>
+                    <span style="text-align:right">SCORE</span>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-av">BA</span>
+                    <span class="term-co"><span class="nme">Buntar Aerospace</span></span>
+                    <span class="term-hq term-hide-sm">🇺🇦 Ukraine</span>
+                    <span class="term-stage term-hide-sm">Series A</span>
+                    <span class="term-cat term-hide-sm"><span class="term-tag">UAS</span><span class="term-tag">AI-autonomy</span></span>
+                    <span class="term-score"><span class="term-bar"><i style="width:84%"></i></span><span class="term-num">8.4</span></span>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-av">AR</span>
+                    <span class="term-co"><span class="nme">ARX Robotics</span></span>
+                    <span class="term-hq term-hide-sm">🇩🇪 Germany</span>
+                    <span class="term-stage term-hide-sm">Series A</span>
+                    <span class="term-cat term-hide-sm"><span class="term-tag">Ground</span><span class="term-tag">AI-autonomy</span></span>
+                    <span class="term-score"><span class="term-bar"><i style="width:80%"></i></span><span class="term-num">8.0</span></span>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-av">S</span>
+                    <span class="term-co"><span class="nme">Swarmer</span></span>
+                    <span class="term-hq term-hide-sm">🇺🇦 Ukraine</span>
+                    <span class="term-stage term-hide-sm">Series A</span>
+                    <span class="term-cat term-hide-sm"><span class="term-tag">AI-autonomy</span></span>
+                    <span class="term-score"><span class="term-bar"><i style="width:77%"></i></span><span class="term-num">7.7</span></span>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-av">AA</span>
+                    <span class="term-co"><span class="nme">Athlon Avia</span></span>
+                    <span class="term-hq term-hide-sm">🇺🇦 Ukraine</span>
+                    <span class="term-stage term-hide-sm">Bootstrapped</span>
+                    <span class="term-cat term-hide-sm"><span class="term-tag">UAS</span></span>
+                    <span class="term-score"><span class="term-bar"><i style="width:76%"></i></span><span class="term-num">7.6</span></span>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-av">C</span>
+                    <span class="term-co"><span class="nme">Cybernetica</span></span>
+                    <span class="term-hq term-hide-sm">🇪🇪 Estonia</span>
+                    <span class="term-stage term-hide-sm">Bootstrapped</span>
+                    <span class="term-cat term-hide-sm"><span class="term-tag">Cyber</span><span class="term-tag">C4ISR</span></span>
+                    <span class="term-score"><span class="term-bar"><i style="width:72%"></i></span><span class="term-num">7.2</span></span>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-av">D</span>
+                    <span class="term-co"><span class="nme">DefSecIntel</span></span>
+                    <span class="term-hq term-hide-sm">🇪🇪 Estonia</span>
+                    <span class="term-stage term-hide-sm">Grant-only</span>
+                    <span class="term-cat term-hide-sm"><span class="term-tag">C4ISR</span></span>
+                    <span class="term-score"><span class="term-bar"><i style="width:71%"></i></span><span class="term-num">7.1</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         AI ASSISTANT  (preview #2 — recreation of the RaisePoint AI Assistant)
+         EDIT: suggested questions + the sample Q&A below. Company names are
+         anonymised (Company A/X) on purpose.
+    ==================================================================== -->
+    <section id="assistant" class="relative overflow-hidden bg-bg-alt border-y border-line">
+      <div class="glow glow-band" aria-hidden="true"></div>
+      <div class="container relative py-20 md:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow mb-5">AI assistant</p>
+          <h2 class="text-[clamp(1.9rem,3.6vw,2.9rem)]">Receive verified data, tailored to your requests.</h2>
+        </div>
+
+        <div class="mt-12 reveal">
+          <div class="ai" aria-hidden="true">
+            <!-- suggested questions -->
+            <aside class="ai-side">
+              <p class="ai-sec">SUGGESTED QUESTIONS</p>
+              <div class="ai-q">Top 5 combat-validated UAS companies</div>
+              <div class="ai-q">Compare Company X and Company Y</div>
+              <div class="ai-q">Which C-UAS companies are raising a €500k to €2M round and have an EU LLC?</div>
+              <div class="ai-q">Which companies raised funding in 2026?</div>
+              <div class="ai-q">Who led the largest disclosed round?</div>
+              <div class="ai-note">MOCK ENVIRONMENT · responses are templated. Production model gated by license tier.</div>
+            </aside>
+            <!-- chat -->
+            <div class="ai-main">
+              <div class="ai-user">Top 5 combat-validated UAS companies</div>
+              <div class="ai-answer">
+                <p class="lead">Coverage UAS companies with the strongest battle-tested evidence:</p>
+                <ul>
+                  <li>1. <span class="co">Company A</span> · RaisePoint 8.4 · combat-validated, corrected an AFU strike.</li>
+                  <li>2. <span class="co">Company B</span> · RaisePoint 7.6 · in operational AFU use since 2014.</li>
+                  <li>3. <span class="co">Company C</span> · RaisePoint 7.7 · swarm-coordination autonomy in active ops.</li>
+                  <li>4. <span class="co">Company D</span> · RaisePoint 7.0 · long-range fixed-wing in AFU service.</li>
+                  <li>5. <span class="co">Company E</span> · RaisePoint 6.7 · strike-UAS payload in active use.</li>
+                </ul>
+                <p class="ai-sources">SOURCES: <b>[CO/company-a]</b> <b>[CO/company-b]</b> <b>[CO/company-c]</b> <b>[CO/company-d]</b> <b>[CO/company-e]</b></p>
+              </div>
+              <div class="ai-user">Compare Company X and Company Y</div>
+              <div class="ai-answer">
+                <p class="lead">Company X vs Company Y:</p>
+                <ul>
+                  <li>Stage: Series A vs Series A</li>
+                  <li>Total funding: $10.4M vs $18.2M</li>
+                  <li>Battle-tested: strong vs validated</li>
+                  <li>RaisePoint score: 8.4 vs 7.7</li>
+                  <li>Top signal: <span class="co">Company X</span> combat-validated strike correction; <span class="co">Company Y</span> swarm-coordination autonomy in active ops.</li>
+                </ul>
+                <p class="ai-sources">SOURCES: <b>[CO/company-x]</b> <b>[CO/company-y]</b></p>
+              </div>
+              <div class="ai-input">
+                <span class="box">ask about companies, rounds, signals…</span>
+                <span class="ai-send">SEND</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         2. WHAT IT DOES  (4 value blocks)
+         EDIT: the four cards below (heading + copy).
+    ==================================================================== -->
+    <section id="what" class="relative">
+      <div class="container py-20 md:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow mb-5"><span class="idx">01</span> About</p>
+          <h2 class="text-[clamp(1.9rem,3.6vw,2.9rem)]">The signals that drive defence deals, verified and in one place.</h2>
+          <p class="mt-5 text-muted text-[1.02rem]">
+            Today, sourcing investment into defence is manual and network-based. Investors truly only
+            care about the founders, the company's legal structure, and the operational KPIs of the
+            products, and those signals aren't in the generalist deal-sourcing tools. RaisePoint is
+            here to help, with a unified, defence-focused research and analysis tool.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- a -->
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg>
+            </div>
+            <h3 class="text-[1.08rem] mb-2">New companies and signals appear here first</h3>
+            <p class="text-[0.92rem] text-muted-2">
+              Our algorithm quickly captures and verifies fresh data, then structures it into
+              easy-to-analyse output.
+            </p>
+          </article>
+          <!-- b -->
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+            </div>
+            <h3 class="text-[1.08rem] mb-2">Signals that move deals</h3>
+            <p class="text-[0.92rem] text-muted-2">
+              Combat validation, cross-border legal structure, founder-network depth and headcount
+              growth and others. Checked against sourced evidence.
+            </p>
+          </article>
+          <!-- c -->
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21"/></svg>
+            </div>
+            <h3 class="text-[1.08rem] mb-2">Smart company scoring system</h3>
+            <p class="text-[0.92rem] text-muted-2">
+              Every company carries a single RaisePoint score that blends the most relevant weighted
+              signals.
+            </p>
+          </article>
+          <!-- d -->
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.8l3.4 7.9M16.5 7.8l-3.4 7.9M8.4 6h7.2"/></svg>
+            </div>
+            <h3 class="text-[1.08rem] mb-2">Analyse company-investor compatibility</h3>
+            <p class="text-[0.92rem] text-muted-2">
+              See which investors that you follow already back a company, and see how your own
+              portfolio fits with each potential target.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         3. SECURITY & PRIVACY  (replaces the old "Security" steps)
+         EDIT: heading + the three points below.
+    ==================================================================== -->
+    <section id="how" class="relative overflow-hidden bg-bg-alt border-y border-line">
+      <div class="glow glow-band" aria-hidden="true"></div>
+      <div class="container relative py-20 md:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow mb-5"><span class="idx">02</span> Security</p>
+          <h2 class="text-[clamp(1.9rem,3.6vw,2.9rem)]">A private database, by design.</h2>
+          <p class="mt-5 text-muted text-[1.02rem]">
+            The companies we cover trust us with sensitive information, so we treat access as a
+            privilege, not a default. Every user is identity-verified and vetted before they see a
+            single record, and we never publish anything that could put a company at risk. Privacy
+            isn't a setting on RaisePoint. It's the reason the data exists.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         4. USE CASES  (filter the company universe by what matters)
+         EDIT: the cards below.
+    ==================================================================== -->
+    <section id="use-cases" class="relative bg-bg-alt border-y border-line">
+      <div class="container py-20 md:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow mb-5"><span class="idx">03</span> Use cases</p>
+          <h2 class="text-[clamp(1.9rem,3.6vw,2.9rem)]">Where it applies in your workflow.</h2>
+        </div>
+
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="18" cy="6" r="2"/></svg>
+            </div>
+            <h3 class="text-[1.18rem] mb-2.5">Build a mandate-ready target list</h3>
+            <p class="text-[0.95rem] text-muted-2">
+              Stand up a credible UA/EU defence-tech pipeline in an afternoon, one that holds up to
+              your investment committee and your LPs.
+            </p>
+          </article>
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><path d="M19 7l1.5 1.5L23 6"/></svg>
+            </div>
+            <h3 class="text-[1.18rem] mb-2.5">Vet a founder before the intro</h3>
+            <p class="text-[0.95rem] text-muted-2">
+              Know the team, the track record and the network around a founder before you spend a
+              meeting, or a warm intro, on them.
+            </p>
+          </article>
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+            </div>
+            <h3 class="text-[1.18rem] mb-2.5">Filter by legal structure</h3>
+            <p class="text-[0.95rem] text-muted-2">
+              Surface only the companies that fit your mandate by their cross-border legal structure,
+              flags and all, before they reach IC.
+            </p>
+          </article>
+          <article class="card card-hover p-6 reveal">
+            <div class="text-accent mb-5" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            </div>
+            <h3 class="text-[1.18rem] mb-2.5">Filter by operational performance</h3>
+            <p class="text-[0.95rem] text-muted-2">
+              See only the companies you want by their operational KPIs, whether they've been
+              combat-tested in Ukraine, what battle validation they hold, and where.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. FAQ  (accordion, matches reference "Got questions?")
+         EDIT: each <details> below. Keep answers outcome-level (moat rule).
+    ==================================================================== -->
+    <section id="faq" class="relative bg-bg-alt border-y border-line">
+      <div class="container py-20 md:py-28">
+        <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div class="reveal">
+            <p class="eyebrow mb-5"><span class="idx">04</span> FAQ</p>
+            <h2 class="text-[clamp(1.9rem,3.6vw,2.9rem)]">Got questions?<br />We have the answers.</h2>
+          </div>
+
+          <div class="faq reveal">
+            <details>
+              <summary>How is this different from our competitors?<span class="plus" aria-hidden="true"></span></summary>
+              <div class="faq-body">Generalist platforms are broad but shallow on defence. RaisePoint is defence-only and Europe/Ukraine-deep, built bottom-up to include early companies they don't list, and organised around the signals that actually help to analyse defence deals.</div>
+            </details>
+            <details>
+              <summary>What's in a tearsheet?<span class="plus" aria-hidden="true"></span></summary>
+              <div class="faq-body">Verified funding history, investors, products, battle-validation evidence with sources, legal structure, a founder-network overview, and a RaisePoint score.</div>
+            </details>
+            <details>
+              <summary>What is the RaisePoint score?<span class="plus" aria-hidden="true"></span></summary>
+              <div class="faq-body">A single number per company that blends a handful of weighted signals under a proprietary methodology.</div>
+            </details>
+            <details>
+              <summary>Who can get access?<span class="plus" aria-hidden="true"></span></summary>
+              <div class="faq-body">Qualified funds and advisors with a defence or Ukraine/EU mandate. Access is invite-led and granted to a small number of firms at a time.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         8. FINAL CTA BAND
+         EDIT: headline + button below.
+    ==================================================================== -->
+    <section class="relative overflow-hidden">
+      <div class="container py-20 md:py-28">
+        <div class="card crosshair relative overflow-hidden p-9 md:p-14 reveal" style="background:var(--surface-2)">
+          <div class="glow glow-band" aria-hidden="true"></div>
+          <div class="relative max-w-2xl">
+            <p class="eyebrow mb-5">Request access</p>
+            <h2 class="text-[clamp(2rem,4vw,3.2rem)]">The deal-flow engine for European defence capital.</h2>
+            <p class="mt-5 text-muted text-[1.05rem]">
+              Access is invite-led and granted to qualified funds and advisors. Tell us about your
+              firm and we'll be in touch.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="request-access.html" class="btn btn-primary">Request access</a>
+              <a href="#what" class="btn btn-ghost">Back to overview</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FOOTER  (giant wordmark, contact, links, button group)
+       EDIT: contact email + links below.
+  ==================================================================== -->
+  <footer class="relative overflow-hidden border-t border-line">
+    <div class="grid-bp" aria-hidden="true" style="mask-image:radial-gradient(120% 100% at 50% 100%, #000 30%, transparent 78%);-webkit-mask-image:radial-gradient(120% 100% at 50% 100%, #000 30%, transparent 78%)"></div>
+
+    <div class="container relative pt-16 pb-10">
+      <!-- top row: blurb + actions -->
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div class="max-w-md">
+          <a href="mailto:hello@raisepoint.nl" class="link-accent text-[0.95rem] inline-block">hello@raisepoint.nl</a>
+        </div>
+
+        <div class="flex flex-col items-start md:items-end gap-5">
+          <nav class="flex flex-wrap gap-x-6 gap-y-2 text-[0.9rem] text-muted-2" aria-label="Footer">
+            <a href="#what" class="hover:text-ink transition">About</a>
+            <a href="#how" class="hover:text-ink transition">Security</a>
+            <a href="#use-cases" class="hover:text-ink transition">Use cases</a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- giant wordmark -->
+      <div class="mt-14 mb-6 overflow-hidden">
+        <div class="wordmark">RaisePoint</div>
+      </div>
+
+      <!-- legal line -->
+      <div class="divider my-7" aria-hidden="true"></div>
+      <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-[0.78rem] text-faint font-mono uppercase tracking-wider">
+        <p>© <span id="year">2026</span> RaisePoint · Private-capital intelligence for defence</p>
+        <p>Built in Europe · Invite-led access</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       SCRIPTS  (vanilla JS only: mobile menu, year, reveal-on-scroll)
+  ==================================================================== -->
+  <script>
+    // Mobile menu toggle
+    (function () {
+      var btn = document.getElementById("menu-btn");
+      var menu = document.getElementById("mobile-menu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function () {
+        var open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      });
+      // close menu when a link is tapped
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          menu.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      });
+    })();
+
+    // Current year in footer
+    var y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Reveal-on-scroll (IntersectionObserver; degrades to visible without JS).
+    // Includes a safety net so content is NEVER left hidden if JS/observer is slow.
+    (function () {
+      var els = document.querySelectorAll(".reveal");
+      if (!els.length) return;
+      function revealAll() { els.forEach(function (el) { el.classList.add("in"); }); }
+      if (!("IntersectionObserver" in window)) { revealAll(); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+      // Safety: reveal everything after 1.5s regardless (animation still plays for scrollers).
+      setTimeout(revealAll, 1500);
+    })();
+  </script>
+</body>
+</html>

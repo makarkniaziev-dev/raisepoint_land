@@ -1,0 +1,99 @@
+<!-- ============================================================
+     PLACEHOLDER hero image for RaisePoint.
+     To use your own picture: drop your file in this /assets folder
+     and either name it hero.svg, or change the <img src> in index.html
+     to your filename (e.g. assets/hero.jpg). Any size works — it's
+     cropped to fit the frame.
+     ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500" role="img" aria-label="Abstract intelligence scope">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d1f20"/>
+      <stop offset="1" stop-color="#131313"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="62%" cy="46%" r="55%">
+      <stop offset="0" stop-color="#33c2ff" stop-opacity="0.40"/>
+      <stop offset="45%" stop-color="#1e6682" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1e6682" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="node" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#7ad6ff"/>
+      <stop offset="100%" stop-color="#1e6682"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#bg)"/>
+
+  <!-- faint blueprint grid -->
+  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="1">
+    <g>
+      <line x1="0" y1="150" x2="1200" y2="150"/><line x1="0" y1="300" x2="1200" y2="300"/>
+      <line x1="0" y1="450" x2="1200" y2="450"/><line x1="0" y1="600" x2="1200" y2="600"/>
+      <line x1="0" y1="750" x2="1200" y2="750"/><line x1="0" y1="900" x2="1200" y2="900"/>
+      <line x1="0" y1="1050" x2="1200" y2="1050"/><line x1="0" y1="1200" x2="1200" y2="1200"/>
+      <line x1="0" y1="1350" x2="1200" y2="1350"/>
+    </g>
+    <g>
+      <line x1="150" y1="0" x2="150" y2="1500"/><line x1="300" y1="0" x2="300" y2="1500"/>
+      <line x1="450" y1="0" x2="450" y2="1500"/><line x1="600" y1="0" x2="600" y2="1500"/>
+      <line x1="750" y1="0" x2="750" y2="1500"/><line x1="900" y1="0" x2="900" y2="1500"/>
+      <line x1="1050" y1="0" x2="1050" y2="1500"/>
+    </g>
+  </g>
+
+  <rect width="1200" height="1500" fill="url(#glow)"/>
+
+  <!-- scope rings -->
+  <g transform="translate(700 720)" fill="none" stroke="#33c2ff" stroke-opacity="0.28">
+    <circle r="120"/><circle r="240" stroke-opacity="0.20"/><circle r="380" stroke-opacity="0.13"/>
+    <circle r="530" stroke-opacity="0.08"/>
+    <line x1="-560" y1="0" x2="560" y2="0" stroke-opacity="0.10"/>
+    <line x1="0" y1="-560" x2="0" y2="560" stroke-opacity="0.10"/>
+  </g>
+
+  <!-- connecting lines -->
+  <g stroke="#33c2ff" stroke-opacity="0.25" stroke-width="1.5">
+    <line x1="700" y1="720" x2="470" y2="430"/>
+    <line x1="700" y1="720" x2="940" y2="560"/>
+    <line x1="700" y1="720" x2="560" y2="1010"/>
+    <line x1="700" y1="720" x2="980" y2="980"/>
+  </g>
+
+  <!-- faint nodes -->
+  <g fill="#9a9a9a" fill-opacity="0.5">
+    <circle cx="330" cy="640" r="5"/><circle cx="520" cy="300" r="5"/>
+    <circle cx="860" cy="360" r="5"/><circle cx="1010" cy="700" r="5"/>
+    <circle cx="420" cy="900" r="5"/><circle cx="780" cy="1120" r="5"/>
+    <circle cx="300" cy="1080" r="5"/><circle cx="930" cy="1180" r="5"/>
+  </g>
+
+  <!-- active nodes -->
+  <g>
+    <circle cx="470" cy="430" r="9" fill="url(#node)"/>
+    <circle cx="940" cy="560" r="9" fill="url(#node)"/>
+    <circle cx="560" cy="1010" r="9" fill="url(#node)"/>
+    <circle cx="980" cy="980" r="9" fill="url(#node)"/>
+    <circle cx="700" cy="720" r="13" fill="#33c2ff"/>
+    <circle cx="700" cy="720" r="26" fill="none" stroke="#33c2ff" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- score tag on the central node -->
+  <g transform="translate(735 668)">
+    <rect x="0" y="0" width="150" height="56" rx="10" fill="#33c2ff" fill-opacity="0.12" stroke="#33c2ff" stroke-opacity="0.45"/>
+    <text x="16" y="24" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#8fd9ff" letter-spacing="1.5">SCORE</text>
+    <text x="16" y="46" font-family="Inter, sans-serif" font-size="22" font-weight="600" fill="#eafaff">87</text>
+  </g>
+
+  <!-- corner crosshairs -->
+  <g stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5">
+    <path d="M50 50 h22 M50 50 v22"/>
+    <path d="M1150 50 h-22 M1150 50 v22"/>
+    <path d="M50 1450 h22 M50 1450 v-22"/>
+    <path d="M1150 1450 h-22 M1150 1450 v-22"/>
+  </g>
+
+  <!-- mono labels -->
+  <text x="64" y="92" font-family="ui-monospace, Menlo, monospace" font-size="22" fill="#cfcfcf" letter-spacing="4">RAISEPOINT</text>
+  <text x="64" y="124" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#6b6b6b" letter-spacing="3">INTELLIGENCE SCOPE</text>
+  <text x="64" y="1424" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#6b6b6b" letter-spacing="3">UKRAINE · EU DEFENCE-TECH</text>
+</svg>
