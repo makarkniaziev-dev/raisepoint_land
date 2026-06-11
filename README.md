@@ -119,7 +119,7 @@ Create the form on [tally.so](https://tally.so) or Google Forms and replace the 
 ### Option C — mailto fallback (zero setup, least reliable)
 Change the form tag to:
 ```html
-<form id="access-form" action="mailto:hello@raisepoint.nl" method="POST" enctype="text/plain">
+<form id="access-form" action="mailto:makar.kniaziev@raisepoint.nl" method="POST" enctype="text/plain">
 ```
 This opens the visitor's email app with the details pre-filled.
 
@@ -147,7 +147,7 @@ Both options take a folder and give you a live URL. No account-wide setup, no co
 
 Search the project for these and swap in real values:
 
-- `hello@raisepoint.nl` — your real contact email (appears in both footers + the form page).
+- `makar.kniaziev@raisepoint.nl` — your real contact email (appears in both footers + the form page).
 - `raisepoint.nl` — your real domain (in the `<link rel="canonical">` and meta tags).
 - `favicon.svg` — replace with your own icon if you have one.
 - `reference/social-card-placeholder.png` — add a 1200×630 image for nice link previews, or

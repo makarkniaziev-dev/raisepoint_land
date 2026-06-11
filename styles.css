@@ -340,6 +340,7 @@ a { color: inherit; text-decoration: none; }
 /* ------------------------------------------------------------------ */
 .video-frame {
   position: relative;
+  max-width: 720px;
   border: 2px solid var(--accent);
   border-radius: 16px;
   overflow: hidden;
@@ -347,6 +348,85 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 0 1px var(--accent-20), 0 0 60px -12px var(--glow), 0 40px 90px -45px rgba(0, 0, 0, 0.75);
 }
 .video-el { display: block; width: 100%; height: auto; }
+
+/* demo video controls (pause / restart) */
+.video-ctrl {
+  position: absolute;
+  right: 12px; bottom: 12px;
+  display: flex; gap: 8px;
+  z-index: 2;
+}
+.vc-btn {
+  display: grid; place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  color: var(--ink);
+  background: rgba(13, 13, 13, 0.72);
+  border: 1px solid var(--border-2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.vc-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(13, 13, 13, 0.9); }
+.vc-btn svg { width: 16px; height: 16px; }
+.vc-btn .ic-play { display: none; }
+.vc-btn.paused .ic-pause { display: none; }
+.vc-btn.paused .ic-play { display: block; }
+
+/* soft accent wash behind the video (right side of the section) */
+.demo-glow {
+  top: 50%; right: -160px;
+  width: min(860px, 92vw); height: 560px;
+  transform: translateY(-50%);
+  filter: blur(18px);
+  background:
+    radial-gradient(46% 52% at 60% 50%, var(--glow-soft) 0%, transparent 70%),
+    radial-gradient(32% 44% at 44% 58%, var(--glow-deep) 0%, transparent 72%);
+}
+
+/* fading fine dot grid behind the video */
+.demo-dots {
+  position: absolute; z-index: 0; pointer-events: none;
+  top: 50%; right: 0;
+  width: min(760px, 90vw); height: 480px;
+  transform: translateY(-50%);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.4) 1px, transparent 0);
+  background-size: 20px 20px;
+  opacity: .16;
+  -webkit-mask: radial-gradient(60% 60% at 55% 50%, #000 30%, transparent 75%);
+          mask: radial-gradient(60% 60% at 55% 50%, #000 30%, transparent 75%);
+}
+
+/* circuit-style data line from the heading's full stop into the video (desktop only).
+   Geometry is computed in JS (index.html) so the line starts exactly at the period. */
+.demo-link {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+@media (min-width: 1024px) { .demo-link { display: block; } }
+/* Demo section fades in without sliding, so the connector line stays static
+   (no rise-from-bottom) — its anchors, the heading and the frame, don't move. */
+#demo-stage .reveal { transform: none; }
+.demo-link-base { stroke: var(--border-2); stroke-width: 1.5; }
+.demo-link-node { fill: var(--bg); stroke: var(--border-2); stroke-width: 1.5; }
+.demo-link-port { fill: var(--accent); filter: drop-shadow(0 0 6px var(--accent)); }
+.demo-link-pulse {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 32 400;
+  filter: drop-shadow(0 0 5px var(--glow));
+  animation: demo-pulse 3.2s linear infinite;
+}
+@keyframes demo-pulse {
+  from { stroke-dashoffset: 432; }
+  to   { stroke-dashoffset: 0; }
+}
 
 /* ------------------------------------------------------------------ */
 /* Hero product terminal (HTML recreation of the RaisePoint app)      */
@@ -689,6 +769,7 @@ select.field {
   html { scroll-behavior: auto; }
   .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
   .wordmark, .logo-word { animation: none; background: linear-gradient(180deg, #e6e6e6, #9a9a9a); -webkit-background-clip: text; background-clip: text; }
+  .demo-link-pulse { display: none; }
 }
 
 /* ================================================================== */
