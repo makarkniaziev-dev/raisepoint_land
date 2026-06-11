@@ -5,5 +5,9 @@ reference/
 .claude/
 .vscode/
 
+# Raw source recordings — never committed (the optimised companies-demo.mp4 is what ships)
+assets/*.mov
+assets/demo-companies.mp4
+
 # macOS
 .DS_Store
