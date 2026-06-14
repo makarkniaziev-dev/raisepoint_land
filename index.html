@@ -616,6 +616,21 @@
     var y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
 
+    // Hero terminal on phones: show the full desktop layout, scaled to fit the screen width.
+    (function () {
+      var term = document.querySelector("#hero .term");
+      if (!term) return;
+      function fit() {
+        if (window.matchMedia("(max-width: 639px)").matches) {
+          term.style.zoom = Math.min(1, (window.innerWidth - 40) / 660); // 40 = container padding
+        } else {
+          term.style.zoom = "";
+        }
+      }
+      fit();
+      window.addEventListener("resize", fit);
+    })();
+
     // Demo video: pause / restart controls
     (function () {
       var video = document.querySelector("#demo video");

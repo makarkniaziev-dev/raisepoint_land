@@ -510,6 +510,16 @@ a { color: inherit; text-decoration: none; }
   .term-hide-sm { display: block; }
   .term-cat.term-hide-sm { display: flex; }
 }
+/* On phones, show the SAME full desktop terminal (sidebar + every column) instead of the
+   stripped 2-column version — rendered at a desktop width and scaled to fit. The inline
+   script sets the exact zoom for the viewport; 0.5 is the no-JS fallback. */
+@media (max-width: 639px) {
+  .term-side { display: flex; }
+  .term-thead, .term-row { grid-template-columns: 24px minmax(0,1fr) 68px 78px 116px 64px; }
+  .term-hide-sm { display: block; }
+  .term-cat.term-hide-sm { display: flex; }
+  #hero .term { width: 660px; zoom: 0.5; }
+}
 
 /* ------------------------------------------------------------------ */
 /* AI assistant preview (recreation of the RaisePoint AI Assistant)   */
@@ -628,7 +638,9 @@ a { color: inherit; text-decoration: none; }
 .nav .logo-mark { width: 30px; height: 30px; }
 
 /* mobile menu (toggled by JS) */
-#mobile-menu { display: none; }
+/* solid background (the Tailwind bg-bg/95 opacity modifier fails on the CSS-var colour,
+   leaving the dropdown transparent — this makes it opaque so it doesn't show the hero through) */
+#mobile-menu { display: none; background: var(--bg); }
 #mobile-menu.open { display: block; }
 
 /* ------------------------------------------------------------------ */
