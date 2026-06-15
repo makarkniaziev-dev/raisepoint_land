@@ -529,9 +529,22 @@ a { color: inherit; text-decoration: none; }
   .term-thead, .term-row { grid-template-columns: 24px minmax(0,1fr) 68px 78px 116px 64px; }
   .term-hide-sm { display: block; }
   .term-cat.term-hide-sm { display: flex; }
-  /* full-width column + centred term so it sits symmetrically with margins on both sides */
+  /* full-width column so the scaled terminal can be centred */
   #hero .grid { grid-template-columns: minmax(0, 1fr); }
-  #hero .term { width: 660px; zoom: 0.42; margin-inline: auto; } /* JS refines zoom; 0.42 = safe fallback */
+  /* Lay the terminal out at full 660px (everything fits, exactly like desktop) then scale the
+     rendered pixels down with transform — uniform on every browser, unlike `zoom` which mis-scales
+     emoji flags and causes overlaps. The wrapper is sized to the scaled box (JS sets exact values). */
+  #hero .term-wrap {
+    overflow: hidden;
+    margin-inline: auto;
+    width: 280px;             /* JS refines to fit the viewport */
+    aspect-ratio: 660 / 425;  /* fallback height until JS sets it exactly */
+  }
+  #hero .term {
+    width: 660px;
+    transform: scale(0.424);  /* JS refines = wrapper width / 660 */
+    transform-origin: top left;
+  }
 }
 
 /* ------------------------------------------------------------------ */

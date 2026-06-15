@@ -143,7 +143,7 @@
           <!-- right: recreated RaisePoint terminal (Companies view), decorative.
                TO USE A REAL SCREENSHOT INSTEAD, replace this whole <div class="term">…</div>
                with:  <div class="hero-frame"><img src="assets/hero.png" class="hero-img" alt="RaisePoint terminal" /></div> -->
-          <div class="relative w-full lg:justify-self-end" aria-hidden="true">
+          <div class="term-wrap relative w-full lg:justify-self-end" aria-hidden="true">
             <div class="term">
               <!-- sidebar -->
               <aside class="term-side">
@@ -623,21 +623,30 @@
     var y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Hero terminal on phones: show the full desktop layout, scaled to fit the screen width.
+    // Hero terminal on phones: render the desktop layout at full 660px width and scale the pixels
+    // down with transform (renders identically on every browser). The wrapper is sized to the
+    // scaled box so there's no overflow or leftover gap, and it's centred via margin-inline:auto.
     (function () {
       var term = document.querySelector("#hero .term");
       if (!term) return;
+      var wrap = term.parentElement;
       function fit() {
         if (window.matchMedia("(max-width: 639px)").matches) {
           var vw = document.documentElement.clientWidth || window.innerWidth || 0;
-          if (vw < 260) { term.style.zoom = ""; return; }  // width unreadable -> use CSS fallback
-          term.style.zoom = Math.min(1, (vw - 64) / 660);  // ~12px gap each side; centred via CSS
+          if (vw < 260) return;                            // width unreadable -> keep CSS fallback
+          var s = Math.min(1, (vw - 64) / 660);            // ~12px gap each side
+          term.style.transform = "scale(" + s + ")";
+          wrap.style.width = Math.round(660 * s) + "px";
+          wrap.style.height = Math.round(term.offsetHeight * s) + "px"; // offsetHeight ignores transform
         } else {
-          term.style.zoom = "";
+          term.style.transform = "";
+          wrap.style.width = "";
+          wrap.style.height = "";
         }
       }
       fit();
       window.addEventListener("resize", fit);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
     })();
 
     // Demo video: pause / restart controls
