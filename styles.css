@@ -349,6 +349,17 @@ a { color: inherit; text-decoration: none; }
 }
 .video-el { display: block; width: 100%; height: auto; }
 
+/* Signal QR (contact) */
+.signal-qr {
+  display: block;
+  width: 150px; height: 150px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border-2);
+  object-fit: cover;
+}
+.signal-qr.signal-qr-lg { width: 140px; height: 140px; border-radius: 14px; }
+
 /* demo video controls (pause / restart) */
 .video-ctrl {
   position: absolute;
@@ -518,7 +529,9 @@ a { color: inherit; text-decoration: none; }
   .term-thead, .term-row { grid-template-columns: 24px minmax(0,1fr) 68px 78px 116px 64px; }
   .term-hide-sm { display: block; }
   .term-cat.term-hide-sm { display: flex; }
-  #hero .term { width: 660px; zoom: 0.5; }
+  /* full-width column + centred term so it sits symmetrically with margins on both sides */
+  #hero .grid { grid-template-columns: minmax(0, 1fr); }
+  #hero .term { width: 660px; zoom: 0.42; margin-inline: auto; } /* JS refines zoom; 0.42 = safe fallback */
 }
 
 /* ------------------------------------------------------------------ */

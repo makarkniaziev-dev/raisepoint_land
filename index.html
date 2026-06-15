@@ -562,8 +562,15 @@
     <div class="container relative pt-16 pb-10">
       <!-- top row: blurb + actions -->
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-        <div class="max-w-md">
-          <a href="mailto:makar.kniaziev@raisepoint.nl" class="link-accent text-[0.95rem] inline-block">makar.kniaziev@raisepoint.nl</a>
+        <div class="max-w-md flex flex-col items-start gap-6">
+          <div class="flex flex-col items-start gap-2.5">
+            <p class="eyebrow">Email</p>
+            <a href="mailto:makar.kniaziev@raisepoint.nl" class="link-accent text-[0.95rem]">makar.kniaziev@raisepoint.nl</a>
+          </div>
+          <div class="flex flex-col items-start gap-2.5">
+            <p class="eyebrow">Signal</p>
+            <img src="assets/signal-qr.png" alt="Scan to message Makar Kniaziev on Signal" class="signal-qr" width="132" height="132" />
+          </div>
         </div>
 
         <div class="flex flex-col items-start md:items-end gap-5">
@@ -622,7 +629,9 @@
       if (!term) return;
       function fit() {
         if (window.matchMedia("(max-width: 639px)").matches) {
-          term.style.zoom = Math.min(1, (window.innerWidth - 40) / 660); // 40 = container padding
+          var vw = document.documentElement.clientWidth || window.innerWidth || 0;
+          if (vw < 260) { term.style.zoom = ""; return; }  // width unreadable -> use CSS fallback
+          term.style.zoom = Math.min(1, (vw - 64) / 660);  // ~12px gap each side; centred via CSS
         } else {
           term.style.zoom = "";
         }

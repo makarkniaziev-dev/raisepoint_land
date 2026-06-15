@@ -91,7 +91,7 @@
     <div class="grid-bp" aria-hidden="true"></div>
 
     <div class="container relative pt-16 pb-24 md:pt-24">
-      <div id="access-main" class="max-w-2xl lg:pt-4">
+      <div id="access-main" class="max-w-2xl">
         <p class="eyebrow mb-6">Request access</p>
         <h1 class="text-[clamp(2.1rem,4.6vw,3.4rem)]">Request access to RaisePoint.</h1>
         <p class="mt-5 text-muted text-[1.05rem] max-w-xl">
@@ -100,10 +100,18 @@
           firm and we'll be in touch.
         </p>
 
-        <p class="mt-8 text-[1.05rem] text-muted-2">
-          Please request access by reaching out to
-          <a href="mailto:makar.kniaziev@raisepoint.nl" class="link-accent">makar.kniaziev@raisepoint.nl</a>
-        </p>
+        <!-- contact: lead-in (aligned with the heading) above the email + Signal QR -->
+        <p class="mt-10 text-[1.05rem] text-muted-2">Please request access by reaching out:</p>
+        <div class="mt-7 flex flex-wrap items-start gap-x-16 gap-y-8">
+          <div class="flex flex-col items-start gap-2.5">
+            <p class="eyebrow">Signal</p>
+            <img src="assets/signal-qr.png" alt="Scan to message Makar Kniaziev on Signal" class="signal-qr signal-qr-lg" width="200" height="200" />
+          </div>
+          <div class="flex flex-col items-start gap-2.5">
+            <p class="eyebrow">Email</p>
+            <a href="mailto:makar.kniaziev@raisepoint.nl" class="link-accent text-[1.05rem]">makar.kniaziev@raisepoint.nl</a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
